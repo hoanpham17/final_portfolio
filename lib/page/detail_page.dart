@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'day_detail.dart';
 
 class WeatherData {
   final DateTime date;
@@ -122,8 +123,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            Text(widget.city.toUpperCase()), // Convert city name to uppercase
+        title: Text(widget.city.toUpperCase()),
       ),
       body: FutureBuilder<List<WeatherData>>(
         future: futureWeather,
@@ -137,37 +137,40 @@ class _DetailPageState extends State<DetailPage> {
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
                 var weather = snapshot.data![index];
-                return Card(
-                  elevation: 2,
-                  color: Color(
-                      0xff19D2FE), // Use primary color as card background color
-                  child: ListTile(
-                    title: Text(
-                      '${weather.date.day}/${weather.date.month}/${weather.date.year}',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Temp: ${weather.minTemp.toStringAsFixed(2)}°C - ${weather.maxTemp.toStringAsFixed(2)}°C',
-                          style: TextStyle(
-                              color:
-                                  Colors.white), // Change text color to white
-                        ),
-                        Text(
-                          'Wind Speed: ${weather.minWindSpeed.toStringAsFixed(2)} - ${weather.maxWindSpeed.toStringAsFixed(2)}',
-                          style: TextStyle(
-                              color:
-                                  Colors.white), // Change text color to white
-                        ),
-                        Text(
-                          'Humidity: ${weather.minHumidity} - ${weather.maxHumidity}',
-                          style: TextStyle(
-                              color:
-                                  Colors.white), // Change text color to white
-                        ),
-                      ],
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DayDetailPage(weather: weather),
+                      ),
+                    );
+                  },
+                  child: Card(
+                    elevation: 2,
+                    color: Color(0xff19D2FE),
+                    child: ListTile(
+                      title: Text(
+                        '${weather.date.day}/${weather.date.month}/${weather.date.year}',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Temp: ${weather.minTemp.toStringAsFixed(2)}°C - ${weather.maxTemp.toStringAsFixed(2)}°C',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Text(
+                            'Wind Speed: ${weather.minWindSpeed.toStringAsFixed(2)} - ${weather.maxWindSpeed.toStringAsFixed(2)}',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Text(
+                            'Humidity: ${weather.minHumidity} - ${weather.maxHumidity}',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );

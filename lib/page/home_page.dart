@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: () {
                 _navigateToDetailPage(context, _cityController.text);
               },
-              child: const Text('Search Weather'),
+              child: const Text('Search Wea'),
             ),
           ],
         ),
