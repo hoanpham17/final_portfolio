@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:final_portfolio/page/my_app.dart';
+import 'package:final_portfolio/presentation/my_app.dart';
 
-void main() {
-  runApp(const MyApp());
+void main(List<String> args) {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(MyApp());
 }
-
-
-
