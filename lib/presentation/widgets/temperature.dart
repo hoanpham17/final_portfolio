@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomeTemperature extends StatelessWidget {
-  const HomeTemperature({super.key, required this.temp, required this.feels_like});
+class Temperature extends StatelessWidget {
+  const Temperature({super.key, required this.temp, required this.feels_like});
 
   final num temp;
   final num feels_like;

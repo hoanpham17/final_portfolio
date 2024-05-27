@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:final_portfolio/models/weather.dart';
 import 'package:http/http.dart' as http;
-import 'package:final_portfolio/apps/utils/const.dart';
 import 'dart:convert';
+
+const linkAsset = 'assets/images/weathers/';
+
+class AssetCustom {
+  static String getLinkImg(String name) =>
+      '$linkAsset${name.replaceAll(' ', '').toLowerCase()}.png';
+}
+
+class MyKey {
+  static const String api_token = '81b7e6fe9a73494875ec45c68254eba5';
+}
+
 
 class apiCurrentWeather {
   static Future<WeatherData> callApiGetWeather(String city) async {
@@ -42,7 +53,6 @@ class FiveDaysWeather extends ChangeNotifier {
       var groupedWindSpeed = <DateTime, List<double>>{};
       var groupedHumidity = <DateTime, List<double>>{};
 
-      // Group forecasts by date and collect min/max temperatures, wind speeds, and humidity
       data['list'].forEach((forecast) {
         var dateTime =
             DateTime.fromMillisecondsSinceEpoch(forecast['dt'] * 1000);
@@ -90,7 +100,6 @@ class FiveDaysWeather extends ChangeNotifier {
         }
       });
 
-      // Create WeatherData objects from grouped data
       groupedTemp.forEach((date, values) {
         forecasts.add(WeatherDataFiveDays(
           date: date,

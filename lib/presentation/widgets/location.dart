@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class HomeLocation extends StatelessWidget {
-  const HomeLocation({super.key, required this.nameLocation});
+class Location extends StatelessWidget {
+  const Location({super.key, required this.nameLocation});
 
   final String nameLocation;
 

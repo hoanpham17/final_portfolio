@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class HomeDetailWeather extends StatelessWidget {
-  const HomeDetailWeather(
+class DetailWeather extends StatelessWidget {
+  const DetailWeather(
       {super.key, required this.humidity, required this.speedWind});
 
   final num humidity;

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:final_portfolio/apps/utils/const.dart';
+import 'package:final_portfolio/providers/weather_provider.dart';
 
-class HomeWeatherIcon extends StatelessWidget {
-  const HomeWeatherIcon({super.key, required this.nameIcon});
+
+class WeatherIcon extends StatelessWidget {
+  const WeatherIcon({super.key, required this.nameIcon});
 
   final String nameIcon;
 
