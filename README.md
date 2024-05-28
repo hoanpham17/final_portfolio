@@ -1,16 +1,12 @@
-# final_portfolio
+**Introduction: **
 
-A new Flutter project.
+This weather mobile application allows  to view weather information for cities around the world. This application retrieves data from https://openweathermap.org/ through calling the API, this is a free version that provides weather data about Current Weather and 3-hour Forecast 5 days.
 
-## Getting Started
+My app has a interface with three main screens: 
+•	Home Screen: I can enter the name of a city to see its weather and set the application background color between black and white.
+•	Detail Screen: Displays current weather information for the selected city and the weather icon will automatically change according to the corresponding weather.
+•	Five Days Screen: Displays weather information for the next 5 days. 
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+![image](https://github.com/hoanpham17/final_portfolio/assets/79062598/a6717558-9135-4d4a-b84d-4a0a6a4543d5)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
